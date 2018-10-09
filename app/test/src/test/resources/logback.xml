@@ -1,0 +1,59 @@
+<configuration scan="true" scanPeriod="60000" debug="false">
+
+	<!-- 过滤掉 TRACE 和 DEBUG 级别的日志，日志打印到控制台中，warn，error日志也会打到控制台 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread]|%-5level|%logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+  <!-- 过滤掉 TRACE 和 DEBUG 级别的日志，info,warn，error日志会打到info.log，总大小最大45G，每个文件最大3G，每天1个文件，最多保留15个文件 -->
+    <appender name="INFO"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>logs/info.log</file>
+
+        <rollingPolicy
+            class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>3GB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>45GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread]|%-5level|%logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- error日志打印到error.log,总大小最大30G，每个文件最大2G，每天1个文件，最多保留15个文件 -->
+    <appender name="ERROR"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>logs/error.log</file>
+        <rollingPolicy
+            class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>2GB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>30GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread]|%-5level|%logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<root level="ALL">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="INFO" />
+		<appender-ref ref="ERROR" />
+	</root>
+</configuration>

@@ -1,0 +1,41 @@
+target/*
+*.iml
+.idea/*
+logs
+/target/
+.settings
+.classpath
+.project
+*.class
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+*.log
+.settings
+.settings/*
+.classpath
+.project
+logs
+tmp
+target
+target/*
+.apt_generated
+.apt_generated/*
+.factorypath
+.factorypath/*
+.springBeans
+.springBeans/*
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/.idea
+/*.iml
+*.iml
+*.iml
+/*.DS_Store
+
+# mvn version plugin
+pom.xml.versionsBackup

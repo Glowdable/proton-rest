@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ========================================================== -->
+<!-- Manual configuration for MyBatis sqlmap mapping. -->
+<!-- ========================================================== -->
+
+<mapper
+	namespace="cn.glowd.proton.dal.mapper.manual.ExtHealthPackageDOMapper">
+
+	<resultMap id="healthPackageMap"
+		type="cn.glowd.proton.dal.model.HealthPackageDO">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="package_id" jdbcType="INTEGER" property="packageId" />
+		<result column="module_id" jdbcType="INTEGER" property="moduleId" />
+		<result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+		<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+		<result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,package_id,module_id,is_delete,gmt_create,gmt_modified
+	</sql>
+
+	<select id="extSelectByModuleId" parameterType="java.lang.Integer"
+		resultMap="healthPackageMap">
+		select
+		<include refid="Base_Column_List" />
+		from health_package
+		where module_id = #{module_id,jdbcType=INTEGER}
+	</select>
+
+</mapper>

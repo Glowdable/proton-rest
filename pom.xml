@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.glowd.proton</groupId>
+	<artifactId>proton</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Proton proton</name>
+	<!-- properties -->
+	<properties>
+		<dubbo.version>2.6.4</dubbo.version>
+		<spring.version>4.3.10.RELEASE</spring.version>
+		<druid.version>1.1.6</druid.version>
+		<mybatis.version>3.4.6</mybatis.version>
+		<mybatis-spring.version>1.3.2</mybatis-spring.version>
+		<mybatis-pagehelper.version>5.1.2</mybatis-pagehelper.version>
+		<jetty.version>6.1.26</jetty.version>
+		<slf4j.version>1.7.22</slf4j.version>
+		<log4j.version>1.2.16</log4j.version>
+		<mysql.version>5.1.45</mysql.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>1.9.5</mockito.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<testng.version>6.8</testng.version>
+		<zkclient.version>0.2</zkclient.version>
+		<slf4j.version>1.7.22</slf4j.version>
+		<logback-classic.version>1.2.1</logback-classic.version>
+		<log4j-over-slf4j.version>1.7.25</log4j-over-slf4j.version>
+		<resteasy.version>3.1.4.Final</resteasy.version>
+		<tomcat.version>8.0.11</tomcat.version>
+		<jackson.version>2.9.4</jackson.version>
+		<validation-api.version>2.0.1.Final</validation-api.version>
+		<hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
+		<servlet-api.version>3.1.0</servlet-api.version>
+		<fastjson.version>1.2.31</fastjson.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- sub projects start -->
+			<dependency>
+				<groupId>cn.glowd.proton</groupId>
+				<artifactId>proton-rest-api-impl</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.glowd.proton</groupId>
+				<artifactId>proton-rest-api</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.glowd.proton</groupId>
+				<artifactId>proton-core</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.glowd.proton</groupId>
+				<artifactId>proton-dal</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.glowd.proton</groupId>
+				<artifactId>proton-common</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<!-- sub projects end -->
+
+			<!-- jetty start dubbo启动jetty容器，收集状态信息 -->
+			<dependency>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty</artifactId>
+				<version>${jetty.version}</version>
+			</dependency>
+
+			<!-- rpc start -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<!-- rpc end -->
+
+			<!-- spring start -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 引入org/springframework/jdbc/datasource/TransactionAwareDataSourceProxy 
+				datasource bean使用 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- spring end -->
+
+			<!-- mybatis start -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${mybatis-pagehelper.version}</version>
+			</dependency>
+			<!-- mybatis end -->
+
+			<!-- dubbo注册zookeeper时使用 -->
+			<dependency>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
+
+			<!-- mysql数据库 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- druid连接池 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<!-- test start -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- test end -->
+
+			<!-- common-lang start -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<!-- common-lang end -->
+
+			<!-- dubbo restful start -->
+
+			<!-- rest协议强依赖，JBoss RestEasy框架 -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxrs</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+
+			<!-- rest协议强依赖，JBoss RestEasy框架 -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-client</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+
+			<!-- 如果要使用netty server -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-netty</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+
+			<!-- 如果要使用xml序列化 -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxb-provider</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+
+			<!-- 如果要使用json序列化 start -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson-provider</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!-- 如果要使用json序列化 end -->
+
+			<!-- 如果要使用tomcat server start -->
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-core</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-logging-juli</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<!-- 如果要使用tomcat server end -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet-api.version}</version>
+			</dependency>
+
+			<!-- rest协议强依赖，验证api，基于 JSR303 实现的 http://dubbo.io/books/dubbo-user-book/demos/parameter-validation.html 
+				start -->
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${validation-api.version}</version>
+			</dependency>
+
+			<!-- 此处如果没有用到扩展validation-api，可以不加依赖，验证api，在JSR303的基础上对校验注解进行了扩展 http://blog.csdn.net/u014029255/article/details/55518598 -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-validator.version}</version>
+			</dependency>
+
+			<!-- dubbo restful end -->
+
+			<!-- logback start -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback-classic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${log4j-over-slf4j.version}</version>
+			</dependency>
+			<!-- logback end -->
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- project build -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- modules -->
+	<modules>
+		<module>assembly</module>
+		<module>app/rest-api</module>
+		<module>app/rest-api-impl</module>
+		<module>app/core</module>
+		<module>app/dal</module>
+		<module>app/common</module>
+		<module>app/test</module>
+	</modules>
+</project>
