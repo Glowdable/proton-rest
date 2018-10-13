@@ -23,7 +23,8 @@
 		<mockito.version>1.9.5</mockito.version>
 		<commons-lang3.version>3.7</commons-lang3.version>
 		<testng.version>6.8</testng.version>
-		<zkclient.version>0.2</zkclient.version>
+		<!-- http://curator.apache.org/zk-compatibility.html -->
+		<curator.version>2.12.0</curator.version>
 		<slf4j.version>1.7.22</slf4j.version>
 		<logback-classic.version>1.2.1</logback-classic.version>
 		<log4j-over-slf4j.version>1.7.25</log4j-over-slf4j.version>
@@ -31,7 +32,8 @@
 		<tomcat.version>8.0.11</tomcat.version>
 		<jackson.version>2.9.4</jackson.version>
 		<validation-api.version>2.0.1.Final</validation-api.version>
-		<hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
+		<hibernate-validator.version>6.0.7.Final
+		</hibernate-validator.version>
 		<servlet-api.version>3.1.0</servlet-api.version>
 		<fastjson.version>1.2.31</fastjson.version>
 	</properties>
@@ -117,9 +119,9 @@
 
 			<!-- dubbo注册zookeeper时使用 -->
 			<dependency>
-				<groupId>com.101tec</groupId>
-				<artifactId>zkclient</artifactId>
-				<version>${zkclient.version}</version>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-framework</artifactId>
+				<version>${curator.version}</version>
 			</dependency>
 
 			<!-- mysql数据库 -->

@@ -29,6 +29,12 @@
 			<artifactId>spring-test</artifactId>
 		</dependency>
 		<!-- spring test end -->
+		<!-- junit start -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	    <!-- junit start -->
 	</dependencies>
 	<build>
 		<plugins>

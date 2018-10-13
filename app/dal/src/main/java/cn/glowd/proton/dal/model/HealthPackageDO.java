@@ -14,7 +14,7 @@ import java.util.Date;
  * according to your needs, then run <tt>ant</tt> to generate this file in {project-home}/dalgen.
  * 
  * @author glowd
- * @since 2018-10-10
+ * @since 2018-10-13
  */
 public class HealthPackageDO implements Serializable {
     /**

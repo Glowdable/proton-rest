@@ -43,19 +43,12 @@
 
 		<!-- dubbo core depends end -->
 
-		<!-- dubbo注册zookeeper时使用 start -->
+		<!-- dubbo注册zookeeper时使用curator start -->
 		<dependency>
-			<groupId>com.101tec</groupId>
-			<artifactId>zkclient</artifactId>
-			<!-- 使用logback -->
-			<exclusions>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-			</exclusions>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-framework</artifactId>
 		</dependency>
-		<!-- dubbo注册zookeeper时使用 end -->
+		<!-- dubbo注册zookeeper时使用curator end -->
 
 		<!-- dubbo restful start -->
 		<!-- rest协议强依赖，JBoss RestEasy框架 -->
