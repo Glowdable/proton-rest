@@ -3,7 +3,8 @@
 -- ------------------------------------------------------
 --
 -- Table structure for table `health_package`
---
+-- refer https://blog.csdn.net/zengqiang1/article/details/79338660
+-- refer https://blog.csdn.net/zengqiang1/article/details/80714254
 
 DROP DATABASE IF EXISTS `arch_proton`;
 CREATE DATABASE `arch_proton`;

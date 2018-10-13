@@ -6,7 +6,11 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- use dubbo protocol to export service on port 20880 -->
-	<dubbo:application name="${app.name}" owner="${app.owner}" />
+	<dubbo:application name="${app.name}" owner="${app.owner}">
+		<!-- remove qos server -->
+		<dubbo:parameter key="qos.enable" value="false" />
+	</dubbo:application>
+
 	<!-- zookeeper use curator client -->
 	<dubbo:registry client="curator" address="${app.registry.address}" />
 	<!-- server全部使用tomcat，调试可以使用jetty，不要使用netty，性能和tomcat差不多，容易造成包覆盖。contextpath服务的根路径，contextpath="services",那么访问就必须/services/{PATH},默认为"" -->
